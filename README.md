@@ -1,5 +1,3 @@
-# cisco-vlan-lab
-
 ## Multi-VLAN Residential Network Lab
 
 This repository documents a Cisco Packet Tracer lab that simulates a small residential network with three isolated VLANs representing separate apartment units. Inter-VLAN routing is configured using a router-on-a-stick topology.
