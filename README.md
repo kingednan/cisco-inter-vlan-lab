@@ -36,15 +36,15 @@ vlan 20
 vlan 30
  name Apartment3
 !
-interface range fa0/1-2
+interface range fa0/0 1-24
  switchport mode access
  switchport access vlan 10
 !
-interface range fa0/3-4
+interface range fa0/1 1-24
  switchport mode access
  switchport access vlan 20
 !
-interface range fa0/5-6
+interface range fa0/3/0 1-24
  switchport mode access
  switchport access vlan 30
 !
@@ -59,16 +59,13 @@ interface fa0/24
 
 ```text
 configure terminal
-interface gigabitEthernet0/0.10
- encapsulation dot1Q 10
- ip address 192.168.1.1 255.255.255.0
+int fa0/0
+ ip address 192.168.1.100 255.255.255.0
 !
-interface gigabitEthernet0/0.20
- encapsulation dot1Q 20
+int fa0/1 
  ip address 192.168.2.1 255.255.255.0
 !
-interface gigabitEthernet0/0.30
- encapsulation dot1Q 30
+int eth0/3/0
  ip address 192.168.3.1 255.255.255.0
 !
 interface gigabitEthernet0/0
