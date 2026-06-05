@@ -74,12 +74,12 @@ interface fastEthernet0/0
 ### Static IP Addressing
 
 
-- PC1 (Apartment 1): 192.168.1.100 /24, gateway 192.168.1.1
-- PC2 (Apartment 1): 192.168.1.100 /24, gateway 192.168.1.1
-- PC3 (Apartment 2): 192.168.2.100 /24, gateway 192.168.2.1
-- PC4 (Apartment 2): 192.168.2.100 /24, gateway 192.168.2.1
-- PC5 (Apartment 3): 192.168.3.100 /24, gateway 192.168.3.1
-- PC6 (Apartment 3): 192.168.3.100 /24, gateway 192.168.3.1
+- Shak (Apartment 1): 192.168.1.100 /24, gateway 192.168.1.1
+- Will (Apartment 1): 192.168.1.100 /24, gateway 192.168.1.1
+- Eddy (Apartment 2): 192.168.2.100 /24, gateway 192.168.2.1
+- Martesse (Apartment 2): 192.168.2.100 /24, gateway 192.168.2.1
+- John (Apartment 3): 192.168.3.100 /24, gateway 192.168.3.1
+- Janny (Apartment 3): 192.168.3.100 /24, gateway 192.168.3.1
 
 ### Verification
 
