@@ -50,7 +50,6 @@ interface range fa0/1-24
 !
 
 ```
-> Note: Adjust interface ranges and VLAN assignments for each switch according to the actual lab topology.
 
 ### Router-on-a-Stick Configuration
 
@@ -68,8 +67,6 @@ interface Ethernet0/3/0
 interface fastEthernet0/0
  no shutdown
 ```
-
-> Note: On a Cisco 2811 router with WIC-1ENET installed, physical Ethernet interfaces may use `fastEthernet` naming and the additional WIC port can provide a third Ethernet connection if needed.
 
 ### Static IP Addressing
 
