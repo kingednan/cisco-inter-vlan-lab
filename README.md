@@ -1,6 +1,6 @@
 ## Multi-VLAN Residential Network Lab
 
-This repository documents a Cisco Packet Tracer lab that simulates a small residential network with three isolated VLANs representing separate apartment units. Inter-VLAN routing is configured using a router-on-a-stick topology.
+This repository documents a Cisco Packet Tracer inter-VLAN lab that simulates a small residential network with three isolated VLANs representing separate apartment units. Inter-VLAN routing is configured using a router-on-a-stick topology.
 
 ### Network Topology
 
@@ -10,8 +10,8 @@ This repository documents a Cisco Packet Tracer lab that simulates a small resid
 
 Devices:
 
-- 1 Router for inter-VLAN routing via subinterfaces
-- 3 Managed switches (one per VLAN)
+- 1 Cisco 2811 router with a WIC-1ENET module for additional Ethernet connectivity
+- 3 Cisco 2960 managed switches (one per VLAN)
 - 6 PCs (2 per switch) with static IP assignments
 
 ### Lab Objectives
@@ -36,51 +36,50 @@ vlan 20
 vlan 30
  name Apartment3
 !
-interface range fa0/0 1-24
+interface range fa0/1-24
  switchport mode access
  switchport access vlan 10
 !
-interface range fa0/1 1-24
+interface range fa0/1-24
  switchport mode access
  switchport access vlan 20
 !
-interface range fa0/3/0 1-24
+interface range fa0/1-24
  switchport mode access
  switchport access vlan 30
 !
-interface fa0/24
- switchport trunk encapsulation dot1q
- switchport mode trunk
-```
 
+```
 > Note: Adjust interface ranges and VLAN assignments for each switch according to the actual lab topology.
 
 ### Router-on-a-Stick Configuration
 
 ```text
 configure terminal
-int fa0/0
+interface fastEthernet0/0
  ip address 192.168.1.100 255.255.255.0
 !
-int fa0/1 
- ip address 192.168.2.1 255.255.255.0
+interface fastEthernet0/1
+ ip address 192.168.2.100 255.255.255.0
 !
-int eth0/3/0
- ip address 192.168.3.1 255.255.255.0
+interface Ethernet0/3/0
+ ip address 192.168.3.100 255.255.255.0
 !
-interface gigabitEthernet0/0
+interface fastEthernet0/0
  no shutdown
 ```
+
+> Note: On a Cisco 2811 router with WIC-1ENET installed, physical Ethernet interfaces may use `fastEthernet` naming and the additional WIC port can provide a third Ethernet connection if needed.
 
 ### Static IP Addressing
 
 
 - PC1 (Apartment 1): 192.168.1.100 /24, gateway 192.168.1.1
-- PC2 (Apartment 1): 192.168.1.100 /24, gateway 192.168.1.2
+- PC2 (Apartment 1): 192.168.1.100 /24, gateway 192.168.1.1
 - PC3 (Apartment 2): 192.168.2.100 /24, gateway 192.168.2.1
-- PC4 (Apartment 2): 192.168.2.100 /24, gateway 192.168.2.2
+- PC4 (Apartment 2): 192.168.2.100 /24, gateway 192.168.2.1
 - PC5 (Apartment 3): 192.168.3.100 /24, gateway 192.168.3.1
-- PC6 (Apartment 3): 192.168.3.100 /24, gateway 192.168.3.2
+- PC6 (Apartment 3): 192.168.3.100 /24, gateway 192.168.3.1
 
 ### Verification
 
